@@ -11,7 +11,7 @@
     <active>yes</active>
   </lead>
   <date>2012-01-02</date>
-  <time>19:11:39</time>
+  <time>19:16:13</time>
   <version>
     <release>0.0.1</release>
     <api>0.0.1</api>
@@ -24,7 +24,10 @@
   <notes>-</notes>
   <contents>
     <dir name="/">
-      <file name="src/Mail/rfc2047.php" role="php" md5sum="0f5938b3c0f8ad1bb8daf847c4b1ca6c"/>
+      <file name="tests/Mail/rfc2047Test.php" role="test" md5sum="0ecd16d33bde635072e25555cc451407"/>
+      <file name="tests/bootstrap.php" role="test" md5sum="35ff6c1911f2877f474c1f3b4907ca51"/>
+      <file name="tests/helpers.php" role="test" md5sum="442b22ed35a844926391dc62c49ec706"/>
+      <file name="src/Mail/rfc2047.php" role="php" md5sum="5a81cc77ee91745ca452337d0e4d2049"/>
     </dir>
   </contents>
   <dependencies>
@@ -39,6 +42,9 @@
   </dependencies>
   <phprelease>
     <filelist>
+      <install name="tests/Mail/rfc2047Test.php" as="Mail/rfc2047Test.php"/>
+      <install name="tests/bootstrap.php" as="bootstrap.php"/>
+      <install name="tests/helpers.php" as="helpers.php"/>
       <install name="src/Mail/rfc2047.php" as="Mail/rfc2047.php"/>
     </filelist>
   </phprelease>
