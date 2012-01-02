@@ -10,11 +10,11 @@
     <email>cornelius.howl@gmail.com</email>
     <active>yes</active>
   </lead>
-  <date>2012-01-02</date>
-  <time>19:17:30</time>
+  <date>2012-01-03</date>
+  <time>01:25:00</time>
   <version>
-    <release>0.0.1</release>
-    <api>0.0.1</api>
+    <release>0.0.2</release>
+    <api>0.0.2</api>
   </version>
   <stability>
     <release>alpha</release>
@@ -27,7 +27,7 @@
       <file name="tests/Mail/rfc2047Test.php" role="test" md5sum="0ecd16d33bde635072e25555cc451407"/>
       <file name="tests/bootstrap.php" role="test" md5sum="35ff6c1911f2877f474c1f3b4907ca51"/>
       <file name="tests/helpers.php" role="test" md5sum="442b22ed35a844926391dc62c49ec706"/>
-      <file name="src/Mail/rfc2047.php" role="php" md5sum="5a81cc77ee91745ca452337d0e4d2049"/>
+      <file name="src/Mail/rfc2047.php" role="php" md5sum="a3e58fb0a5df248952c0b4069e5baf44"/>
     </dir>
   </contents>
   <dependencies>

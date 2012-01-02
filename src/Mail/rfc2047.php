@@ -3,6 +3,11 @@ namespace Mail;
 
 class rfc2047 
 {
+    static function encode($string)
+    {
+        $encoding = mb_detect_encoding($string);
+        return '=?'.$encoding.'?B?'.base64_encode($string).'?=';
+    }
 
     /**
      * decode rfc2047 strings
