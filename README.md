@@ -1,5 +1,8 @@
 # RFC2047
 
+Since `Mail_mimeDecode` PEAR package decoding doesn't support encoding conversion, 
+this module provides better encoding conversion.
+
 rfc2047 decode method
 
     <?php
