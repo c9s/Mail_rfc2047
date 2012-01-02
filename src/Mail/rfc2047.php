@@ -4,7 +4,18 @@ namespace Mail;
 class rfc2047 
 {
 
-    static function decode($subject)
+    /**
+     * decode rfc2047 strings
+     *
+     *  =?UTF-8?Q?.........?=
+     *  =?Big5?B?.......=?=
+     *
+     * @param string $text
+     * @param string $toEncoding convert to encoding..
+     *
+     * @return string decoded string.
+     */
+    static function decode($subject , $toEncoding = 'utf-8')
     {
         $decoded = '';
         if( preg_match_all('/=\?([^?]+)\?([bq])\?(.*?)\?=)/i', $subject, $regs ) ) {
@@ -23,12 +34,11 @@ class rfc2047
                 }
                 elseif( $type == 'b' ) {
                     $decode = base64_decode( $text );
-                    $text = mb_convert_encoding( $decode , 'utf-8', $encoding );
+                    $text = mb_convert_encoding( $decode,$toEncoding, $encoding );
                     $decoded .= $text;
                 }
             }
         }
         return $decoded;
     }
-
 }
