@@ -18,7 +18,7 @@ class rfc2047
     static function decode($subject , $toEncoding = 'utf-8')
     {
         $decoded = '';
-        if( preg_match_all('/=\?([^?]+)\?([bq])\?(.*?)\?=)/i', $subject, $regs ) ) {
+        if( preg_match_all('/=\?([^?]+)\?([bq])\?(.*?)\?=/i', $subject, $regs ) ) {
             $size = count($regs[1]);
             for( $i = 0 ; $i < $size ; $i++ ) {
                 $encoding = $regs[1][ $i ];
