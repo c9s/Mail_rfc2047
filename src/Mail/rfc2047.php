@@ -39,6 +39,9 @@ class rfc2047
                 }
             }
         }
+        else {
+            return $subject;
+        }
         return $decoded;
     }
 }
