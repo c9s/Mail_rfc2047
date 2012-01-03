@@ -23,6 +23,7 @@ class Rfc2047Test extends PHPUnit_Framework_TestCase
 
     function testEncode()
     {
+        rfc2047::$use_mbstring = false;
         $string = rfc2047::encode( 'Test 中文' );
         is( '=?UTF-8?B?VGVzdCDkuK3mloc=?=' , $string );
     }

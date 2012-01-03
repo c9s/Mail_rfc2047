@@ -3,8 +3,13 @@ namespace Mail;
 
 class rfc2047 
 {
+    static $use_mbstring = true;
+
     static function encode($string)
     {
+        if( self::$use_mbstring && function_exists('mb_encode_mimeheader') ) {
+            return mb_encode_mimeheader($string,'UTF-8');
+        }
         $encoding = mb_detect_encoding($string);
         return '=?'.$encoding.'?B?'.base64_encode($string).'?=';
     }
@@ -20,10 +25,13 @@ class rfc2047
      *
      * @return string decoded string.
      */
-    static function decode($subject , $toEncoding = 'utf-8')
+    static function decode($string , $toEncoding = 'utf-8')
     {
+        if( self::$use_mbstring && function_exists('mb_decode_mimeheader') )
+            return mb_decode_mimeheader( $string );
+
         $decoded = '';
-        if( preg_match_all('/=\?([^?]+)\?([bq])\?(.*?)\?=/i', $subject, $regs ) ) {
+        if( preg_match_all('/=\?([^?]+)\?([bq])\?(.*?)\?=/i', $string, $regs ) ) {
             $size = count($regs[1]);
             for( $i = 0 ; $i < $size ; $i++ ) {
                 $encoding = $regs[1][ $i ];
@@ -43,10 +51,8 @@ class rfc2047
                     $decoded .= $text;
                 }
             }
+            return $decoded;
         }
-        else {
-            return $subject;
-        }
-        return $decoded;
+        return $string;
     }
 }
